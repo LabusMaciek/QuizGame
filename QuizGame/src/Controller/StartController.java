@@ -27,7 +27,7 @@ public class StartController extends Main implements Initializable{
  
             @Override
             public void handle(ActionEvent event) {
-            	System.out.println("nastepna scena");
+            	System.out.println("next scene");
            
               	try {   
               		Parent root2 = FXMLLoader.load(getClass().getResource("/View/GameView.fxml"));

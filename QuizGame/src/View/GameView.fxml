@@ -4,19 +4,37 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GameController">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GameController">
    <children>
-      <Label fx:id="questionLabel" alignment="CENTER" layoutX="182.0" layoutY="98.0" text="Label" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="80.0" />
-      <RadioButton fx:id="rbtn_1" layoutX="14.0" layoutY="200.0" mnemonicParsing="false" onAction="#handleRadioButtonAction" prefHeight="43.0" prefWidth="182.0" text="RadioButton">
+      <Label fx:id="questionLabel" alignment="CENTER" layoutX="50.0" layoutY="166.0" prefHeight="69.0" prefWidth="500.0" text="label" AnchorPane.bottomAnchor="265.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="166.0">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <RadioButton fx:id="rbtn_1" layoutX="115.0" layoutY="250.0" mnemonicParsing="false" onAction="#handleRadioButtonAction" prefHeight="91.0" prefWidth="182.0" text="RadioButton">
          <toggleGroup>
             <ToggleGroup fx:id="rbtnGroup" />
          </toggleGroup>
+         <font>
+            <Font size="18.0" />
+         </font>
       </RadioButton>
-      <RadioButton fx:id="rbtn_2" layoutX="14.0" layoutY="280.0" mnemonicParsing="false" onAction="#handleRadioButtonAction" prefHeight="43.0" prefWidth="182.0" text="RadioButton" toggleGroup="$rbtnGroup" />
-      <RadioButton fx:id="rbtn_3" layoutX="204.0" layoutY="200.0" mnemonicParsing="false" onAction="#handleRadioButtonAction" prefHeight="43.0" prefWidth="182.0" text="RadioButton" toggleGroup="$rbtnGroup" />
-      <RadioButton fx:id="rbtn_4" layoutX="204.0" layoutY="280.0" mnemonicParsing="false" onAction="#handleRadioButtonAction" prefHeight="43.0" prefWidth="182.0" text="RadioButton" toggleGroup="$rbtnGroup" />
-      <Button fx:id="next" layoutX="295.0" layoutY="342.0" mnemonicParsing="false" text="Next" />
+      <RadioButton fx:id="rbtn_2" layoutX="115.0" layoutY="339.0" mnemonicParsing="false" onAction="#handleRadioButtonAction" prefHeight="91.0" prefWidth="182.0" text="RadioButton" toggleGroup="$rbtnGroup">
+         <font>
+            <Font size="18.0" />
+         </font></RadioButton>
+      <RadioButton fx:id="rbtn_3" layoutX="425.0" layoutY="250.0" mnemonicParsing="false" onAction="#handleRadioButtonAction" prefHeight="91.0" prefWidth="182.0" text="RadioButton" toggleGroup="$rbtnGroup">
+         <font>
+            <Font size="18.0" />
+         </font></RadioButton>
+      <RadioButton fx:id="rbtn_4" layoutX="425.0" layoutY="339.0" mnemonicParsing="false" onAction="#handleRadioButtonAction" prefHeight="91.0" prefWidth="182.0" text="RadioButton" toggleGroup="$rbtnGroup">
+         <font>
+            <Font size="18.0" />
+         </font></RadioButton>
+      <Button fx:id="next" layoutX="540.0" layoutY="443.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="121.0" text="Next Question" />
+      <ImageView fitHeight="156.0" fitWidth="460.0" layoutX="120.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="344.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>

@@ -28,14 +28,20 @@ public class GameController implements Initializable {
 	@FXML	ToggleGroup rbtnGroup = new ToggleGroup();
 	@FXML 	Button next = new Button();
 	
-	ArrayList<String> question = new ArrayList<String>();
-	String[][] answers = new String[5][4];
-	String[] correct = new String[5];
-
-	int num=0;
-	int status=0;
+			ArrayList<RadioButton> radioButton = new ArrayList<RadioButton>();
+				
+			ArrayList<String> question = new ArrayList<String>();
+			String[][] answers = new String[5][4];
+			String[] correct = new String[5];
+	
+			int num=0;
+			int status=0;
+			int failed=0;
+	
+			String newLine = System.getProperty("line.separator");
 	
 	
+			
 	public GameController() {
 		
 		setData();
@@ -46,23 +52,26 @@ public class GameController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 	
 		
+		
 		questionLabel.setText(question.get(0));		
 		rbtn_1.setText(answers[0][0]);
 		rbtn_2.setText(answers[0][1]);
 		rbtn_3.setText(answers[0][2]);
 		rbtn_4.setText(answers[0][3]);
 	
+		
+		
 		next.setOnAction(new EventHandler<ActionEvent>() {
  
             @Override
             public void handle(ActionEvent event) {
            
-           	System.out.println("dziala");
+          
            	++num;
-           	if (num < 5) {
+           	if (num < question.size()) {
            		display(num);
            	}
-           	if (num == 5) {
+           	else {
            		System.out.println("num 5");
            		
            		try {   
@@ -81,18 +90,23 @@ public class GameController implements Initializable {
 	}
 
 	
-	public void handleRadioButtonAction(ActionEvent event) {
-		
+	public int handleRadioButtonAction(ActionEvent event) {
+		int loop = num+1;
 		if ( ((RadioButton)event.getSource()).getText().equals(correct[num])){
-			System.out.println("correct "+num);
+			
+			++status;
+			++failed;
+			
+			System.out.println("status: "+status);
+			
 		}
 		else 
-			System.out.println("incorrect "+num);
-		
-		
-		
-		
+			
+			System.out.println("incorrect "+loop);
+			
+		return status;
 	}
+	
 	
 	public void display(int num) {
 		questionLabel.setText(question.get(num));		
@@ -100,40 +114,43 @@ public class GameController implements Initializable {
 		rbtn_2.setText(answers[num][1]);
 		rbtn_3.setText(answers[num][2]);
 		rbtn_4.setText(answers[num][3]);
-		
 	}
 	
 	
 	
 	public void setData(){
 		
-	
-			question.add("Stolica Polski?");
-			question.add("Stolica Francji?");
-			question.add("Stolica Hiszpanii");
-			question.add("Stolica Anglii?");
-			question.add("Stolica Wloch?");
+			radioButton.add(rbtn_1); 
+			radioButton.add(rbtn_2);
+			radioButton.add(rbtn_3);
+			radioButton.add(rbtn_4);
+			
+			question.add("Jaką średnicę ma największy krater na Merkurym - Równina Żaru?"); 
+			question.add("Jaką średnicę mają pierścienie Saturna?");
+			question.add("Ile planet jest w Układzie Słonecznym?");
+			question.add("Pomiędzy jakimi dwoma planetami Układu Słonecznego znajduje się pas planetoid?");
+			question.add("Największa planeta Układu Słonecznego to:");
 		
-			answers[0][0] = "Warszawa";
-			answers[0][1] = "Poznan";
-			answers[0][2] = "Krosno";
-			answers[0][3] = "Zamosc";
-			answers[1][0] = "Paryz";
-			answers[1][1] = "Lyon";
-			answers[1][2] = "Marsylia";
-			answers[1][3] = "Montpellier";
-			answers[2][0] = "Madryt";
-			answers[2][1] = "Barcelona";
-			answers[2][2] = "Walencja";
-			answers[2][3] = "Malaga";
-			answers[3][0] = "Londyn";
-			answers[3][1] = "Luton";
-			answers[3][2] = "Manchester";
-			answers[3][3] = "Liverpool";
-			answers[4][0] = "Rzym";
-			answers[4][1] = "Mediolan";
-			answers[4][2] = "Wenecja";
-			answers[4][3] = "Napoli";
+			answers[0][0] = "1550 km";
+			answers[0][1] = "1248 km";
+			answers[0][2] = "Rownina zaru nie jest najwiekszym kraterem na Merkurym";  //\n" + 	""
+			answers[0][3] = "10000 km";
+			answers[1][0] = "270 000";
+			answers[1][1] = "230 000";
+			answers[1][2] = "100 000";
+			answers[1][3] = "100 0000";
+			answers[2][0] = "8";
+			answers[2][1] = "9";
+			answers[2][2] = "Mniej";
+			answers[2][3] = "Wiecej";
+			answers[3][0] = "Mars i Jowisz\n" + "";
+			answers[3][1] = "W Układzie Słonecznym nie ma pasu planetoid\n" + "";
+			answers[3][2] = "Uran i Neptun\n" + "";
+			answers[3][3] = "Saturn i Uran\n" + "";
+			answers[4][0] = "Merkury";
+			answers[4][1] = "Pluton";
+			answers[4][2] = "Ziemia\n" + "";
+			answers[4][3] = "Inna";
 		
 			correct[0] = answers[0][0];
 			correct[1] = answers[1][0];
