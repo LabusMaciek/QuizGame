@@ -16,7 +16,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class StartController extends Main implements Initializable{
-
+	//comment
 	@FXML
 	Button nextBtn;
 	

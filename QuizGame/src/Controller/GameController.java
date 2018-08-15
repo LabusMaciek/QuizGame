@@ -51,7 +51,7 @@ public class GameController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	
-		
+		//comment
 		
 		questionLabel.setText(question.get(0));		
 		rbtn_1.setText(answers[0][0]);
