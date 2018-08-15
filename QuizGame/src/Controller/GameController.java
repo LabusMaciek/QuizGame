@@ -4,24 +4,37 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.stage.Stage;
 
 public class GameController implements Initializable {
 
-	Label questionLabel = new Label();
-	RadioButton rbtn_1 = new RadioButton();
-	RadioButton rbtn_2 = new RadioButton();
-	RadioButton rbtn_3 = new RadioButton();
-	RadioButton rbtn_4 = new RadioButton();
-	ToggleGroup rbtnGroup = new ToggleGroup();
+	@FXML	Label questionLabel = new Label();
+	@FXML	RadioButton rbtn_1 = new RadioButton();
+	@FXML	RadioButton rbtn_2 = new RadioButton();
+	@FXML	RadioButton rbtn_3 = new RadioButton();
+	@FXML	RadioButton rbtn_4 = new RadioButton();
+	@FXML	ToggleGroup rbtnGroup = new ToggleGroup();
+	@FXML 	Button next = new Button();
 	
 	ArrayList<String> question = new ArrayList<String>();
 	String[][] answers = new String[5][4];
 	String[] correct = new String[5];
 
+	int num=0;
+	int status=0;
+	
 	
 	public GameController() {
 		
@@ -31,12 +44,67 @@ public class GameController implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+	
 		
-		
+		questionLabel.setText(question.get(0));		
 		rbtn_1.setText(answers[0][0]);
-		questionLabel.setText(question.get(0));
+		rbtn_2.setText(answers[0][1]);
+		rbtn_3.setText(answers[0][2]);
+		rbtn_4.setText(answers[0][3]);
+	
+		next.setOnAction(new EventHandler<ActionEvent>() {
+ 
+            @Override
+            public void handle(ActionEvent event) {
+           
+           	System.out.println("dziala");
+           	++num;
+           	if (num < 5) {
+           		display(num);
+           	}
+           	if (num == 5) {
+           		System.out.println("num 5");
+           		
+           		try {   
+              		Parent root2 = FXMLLoader.load(getClass().getResource("/View/FinishView.fxml"));
+              		Scene scene2 = new Scene(root2);
+              		Stage gameStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+              		gameStage.setScene(scene2);
+              		gameStage.show();
+              		}
+              	catch(Exception e) {
+              		e.printStackTrace();
+              		}        		           		
+             }            	
+             }
+		});
 	}
 
+	
+	public void handleRadioButtonAction(ActionEvent event) {
+		
+		if ( ((RadioButton)event.getSource()).getText().equals(correct[num])){
+			System.out.println("correct "+num);
+		}
+		else 
+			System.out.println("incorrect "+num);
+		
+		
+		
+		
+	}
+	
+	public void display(int num) {
+		questionLabel.setText(question.get(num));		
+		rbtn_1.setText(answers[num][0]);
+		rbtn_2.setText(answers[num][1]);
+		rbtn_3.setText(answers[num][2]);
+		rbtn_4.setText(answers[num][3]);
+		
+	}
+	
+	
+	
 	public void setData(){
 		
 	

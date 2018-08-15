@@ -18,16 +18,16 @@ import javafx.stage.Stage;
 public class StartController extends Main implements Initializable{
 
 	@FXML
-	Button next;
+	Button nextBtn;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
-		next.setOnAction(new EventHandler<ActionEvent>() {
+		nextBtn.setOnAction(new EventHandler<ActionEvent>() {
  
             @Override
             public void handle(ActionEvent event) {
-              System.out.println("nastepna scena");
+            	System.out.println("nastepna scena");
            
               	try {   
               		Parent root2 = FXMLLoader.load(getClass().getResource("/View/GameView.fxml"));
