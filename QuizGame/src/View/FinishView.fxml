@@ -23,5 +23,6 @@
          </font>
       </Label>
       <Button fx:id="replay" layoutX="250.0" layoutY="413.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="200.0" text="Zagraj ponownie" />
+      <Button fx:id="checkResult" layoutX="596.0" layoutY="217.0" mnemonicParsing="false" text="check" />
    </children>
 </AnchorPane>

@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.StartController">
    <children>
-      <Button fx:id="nextBtn" layoutX="326.0" layoutY="274.0" mnemonicParsing="false" text="Start Quiz" textFill="#d71010" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="270.0" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="270.0">
+      <Button fx:id="startButton" layoutX="244.0" layoutY="257.0" mnemonicParsing="false" prefHeight="111.0" prefWidth="213.0" text="Start Quiz" textFill="#d71010" AnchorPane.bottomAnchor="132.0" AnchorPane.leftAnchor="244.0" AnchorPane.rightAnchor="243.0" AnchorPane.topAnchor="257.0">
          <font>
             <Font name="KacstFarsi" size="24.0" />
          </font></Button>

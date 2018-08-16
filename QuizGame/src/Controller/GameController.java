@@ -20,6 +20,8 @@ import javafx.stage.Stage;
 
 public class GameController implements Initializable {
 
+	
+	
 	@FXML	Label questionLabel = new Label();
 	@FXML	RadioButton rbtn_1 = new RadioButton();
 	@FXML	RadioButton rbtn_2 = new RadioButton();
@@ -72,7 +74,7 @@ public class GameController implements Initializable {
            		display(num);
            	}
            	else {
-           		System.out.println("num 5");
+           		System.out.println("status: "+status);
            		
            		try {   
               		Parent root2 = FXMLLoader.load(getClass().getResource("/View/FinishView.fxml"));
@@ -147,7 +149,7 @@ public class GameController implements Initializable {
 			answers[3][1] = "W Układzie Słonecznym nie ma pasu planetoid\n" + "";
 			answers[3][2] = "Uran i Neptun\n" + "";
 			answers[3][3] = "Saturn i Uran\n" + "";
-			answers[4][0] = "Merkury";
+			answers[4][0] = "Jowisz";
 			answers[4][1] = "Pluton";
 			answers[4][2] = "Ziemia\n" + "";
 			answers[4][3] = "Inna";

@@ -21,12 +21,25 @@ public class FinishController implements Initializable{
 	@FXML	Label label2 = new Label();
 	@FXML	Label statusLabel = new Label();
 	@FXML	Button replay = new Button();
+	@FXML	Button checkResult = new Button();
 	
-	//comment
+	GameController gameController = new GameController();
+	String result = String.valueOf(gameController.status);
+	
+
 	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
+		checkResult.setOnAction(new EventHandler<ActionEvent>() {
+ 
+            @Override
+            public void handle(ActionEvent event) {
+            	System.out.println(result);
+            }
+		});
+		
 		
 		replay.setOnAction(new EventHandler<ActionEvent>() {
  
@@ -47,8 +60,10 @@ public class FinishController implements Initializable{
               }
 		});
 		
+		statusLabel.setText(result);
 		
+	} // end of initialize
 		
 	}
 
-}
+

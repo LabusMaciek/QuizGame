@@ -16,24 +16,25 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class StartController extends Main implements Initializable{
-	//comment
+	
 	@FXML
-	Button nextBtn;
+	Button startButton = new Button();
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
-		nextBtn.setOnAction(new EventHandler<ActionEvent>() {
+		startButton.setOnAction(new EventHandler<ActionEvent>() {
  
             @Override
             public void handle(ActionEvent event) {
             	System.out.println("next scene");
            
               	try {   
-              		Parent root2 = FXMLLoader.load(getClass().getResource("/View/GameView.fxml"));
-              		Scene scene2 = new Scene(root2);
+              		Parent root = FXMLLoader.load(getClass().getResource("/View/GameView.fxml"));
+              		Scene scene = new Scene(root);
+              		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
               		Stage gameStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-              		gameStage.setScene(scene2);
+              		gameStage.setScene(scene);
               		gameStage.show();
               		}
               	catch(Exception e) {
