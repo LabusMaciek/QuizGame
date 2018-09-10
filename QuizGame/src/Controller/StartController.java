@@ -3,7 +3,6 @@ package Controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import Model.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -13,15 +12,26 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-public class StartController extends Main implements Initializable{
+public class StartController  implements Initializable{
 	
 	@FXML
 	Button startButton = new Button();
+	@FXML
+	Label label = new Label();
+	
+	String dupa = "Wersja testowa gry quiz";
+	
+	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
+		label.setText(dupa);
+	
+		startButton.setText("START GAME");
 		
 		startButton.setOnAction(new EventHandler<ActionEvent>() {
  

@@ -2,9 +2,20 @@ package Controller;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.EventObject;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
 import java.util.ResourceBundle;
 
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
+
+import Model.Question;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +29,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 
-public class GameController implements Initializable {
+public class GameController implements Initializable{
 
 	
 	
@@ -30,137 +41,120 @@ public class GameController implements Initializable {
 	@FXML	ToggleGroup rbtnGroup = new ToggleGroup();
 	@FXML 	Button next = new Button();
 	
-			ArrayList<RadioButton> radioButton = new ArrayList<RadioButton>();
-				
-			ArrayList<String> question = new ArrayList<String>();
-			String[][] answers = new String[5][4];
-			String[] correct = new String[5];
-	
-			int num=0;
-			int status=0;
-			int failed=0;
-	
+			
+			
+			List<Question> questionList =  Arrays.asList(
+					new Question("Jak¹ œrednice ma najwiêkszy krater na Merkurym", "1-1248 km", "2-10000 km", "3-997 km", "4-1550 km"),
+					new Question("Jak¹ œrednice maj¹ pierœcienie saturna?","100000 km","1000 km","239 000 km","270 000 km"),
+					new Question("Ile planet jest w Uk³adzie S³onecznym?","9","Mniej","Wiêcej","8"),
+					new Question("Pomiêdzy jakimi dwoma planetami Uk³adu S³onecznego znajduje siê pas planetoid?","Uran i Neptun","Wernus i Mars","Saturn i Uran","Mars i Jowisz"),
+					new Question("Najwiêksza planeta Uk³adu S³onecznego to:","Mars","Ziemia","S³oñce","Jowisz"),
+					new Question("udalo sie","chuja sie udalo", "pronto mordo", "opierdolibym chinczyka", "wtf"));
+			
+			List<RadioButton> radioButtonList = Arrays.asList(rbtn_1, rbtn_2, rbtn_3, rbtn_4); 
+			
+			static int status=0;
+			int num=0;			
+			final int initialListSize = questionList.size();
+			int temp;
+			
 			String newLine = System.getProperty("line.separator");
 	
-	
+			
+			
 			
 	public GameController() {
 		
-		setData();
+		Collections.shuffle(questionList);
+		Collections.shuffle(radioButtonList);
+	
 	}
-	
-	
+			
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	
-		//comment
-		
-		questionLabel.setText(question.get(0));		
-		rbtn_1.setText(answers[0][0]);
-		rbtn_2.setText(answers[0][1]);
-		rbtn_3.setText(answers[0][2]);
-		rbtn_4.setText(answers[0][3]);
+		questionLabel.setText(questionList.get(num).getContentQuestion());
+		rbtn_1.setText(questionList.get(num).getAnswer1());
+		rbtn_2.setText(questionList.get(num).getAnswer2());
+		rbtn_3.setText(questionList.get(num).getAnswer3());
+		rbtn_4.setText(questionList.get(num).getCorrectAnswer());
 	
 		
 		
-		next.setOnAction(new EventHandler<ActionEvent>() {
- 
-            @Override
-            public void handle(ActionEvent event) {
-           
-          
-           	++num;
-           	if (num < question.size()) {
-           		display(num);
-           	}
-           	else {
-           		System.out.println("status: "+status);
-           		
-           		try {   
-              		Parent root2 = FXMLLoader.load(getClass().getResource("/View/FinishView.fxml"));
-              		Scene scene2 = new Scene(root2);
-              		Stage gameStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-              		gameStage.setScene(scene2);
-              		gameStage.show();
-              		}
-              	catch(Exception e) {
-              		e.printStackTrace();
-              		}        		           		
-             }            	
-             }
-		});
-	}
+		
+		
+		/*	
+		(radioButtonList.get(0)).setText(questionList.get(num).getAnswer1());
+		rbtn_2.setText(questionList.get(num).getAnswer2());
+		radioButtonList.get(2).setText(questionList.get(num).getAnswer3());
+		radioButtonList.get(3).setText(questionList.get(num).getCorrectAnswer());
+		*/
+		
+			
+	
+		}
+	
+	
+	@FXML
+	public void display(ActionEvent event) {
+		
+	//	Collections.shuffle(radioButtonList);
+		++num;
+		status = status+temp;
+		
+		if(num<initialListSize) {
+			
+			questionLabel.setText(questionList.get(num).getContentQuestion());
+			rbtn_1.setText(questionList.get(num).getAnswer1());
+			rbtn_2.setText(questionList.get(num).getAnswer2());
+			rbtn_3.setText(questionList.get(num).getAnswer3());
+			rbtn_4.setText(questionList.get(num).getCorrectAnswer());
+				}
+		else {
+
+			try {   
+	      		Parent root2 = FXMLLoader.load(getClass().getResource("/View/FinishView.fxml"));
+	      		Scene scene2 = new Scene(root2);
+	      		Stage gameStage = (Stage)((Node) event.getSource()).getScene().getWindow();
+	      		gameStage.setScene(scene2);
+	      		gameStage.show();
+	      		}
+			
+	      	catch(Exception e) {
+	      		e.printStackTrace();
+	      		}       
+      		
+				}
+		}
 
 	
-	public int handleRadioButtonAction(ActionEvent event) {
-		int loop = num+1;
-		if ( ((RadioButton)event.getSource()).getText().equals(correct[num])){
-			
-			++status;
-			++failed;
-			
-			System.out.println("status: "+status);
-			
+	@FXML
+	public void handleRadioButtonAction(ActionEvent event) {
+		
+		
+		if(  (((RadioButton)event.getSource()).getText()).equals(questionList.get(num).getCorrectAnswer())  ) {	
+			temp = 1;		
 		}
-		else 
-			
-			System.out.println("incorrect "+loop);
-			
-		return status;
-	}
-	
-	
-	public void display(int num) {
-		questionLabel.setText(question.get(num));		
-		rbtn_1.setText(answers[num][0]);
-		rbtn_2.setText(answers[num][1]);
-		rbtn_3.setText(answers[num][2]);
-		rbtn_4.setText(answers[num][3]);
-	}
-	
-	
-	
-	public void setData(){
-		
-			radioButton.add(rbtn_1); 
-			radioButton.add(rbtn_2);
-			radioButton.add(rbtn_3);
-			radioButton.add(rbtn_4);
-			
-			question.add("JakÄ… Å›rednicÄ™ ma najwiÄ™kszy krater na Merkurym - RÃ³wnina Å»aru?"); 
-			question.add("JakÄ… Å›rednicÄ™ majÄ… pierÅ›cienie Saturna?");
-			question.add("Ile planet jest w UkÅ‚adzie SÅ‚onecznym?");
-			question.add("PomiÄ™dzy jakimi dwoma planetami UkÅ‚adu SÅ‚onecznego znajduje siÄ™ pas planetoid?");
-			question.add("NajwiÄ™ksza planeta UkÅ‚adu SÅ‚onecznego to:");
-		
-			answers[0][0] = "1550 km";
-			answers[0][1] = "1248 km";
-			answers[0][2] = "Rownina zaru nie jest najwiekszym kraterem na Merkurym";  //\n" + 	""
-			answers[0][3] = "10000 km";
-			answers[1][0] = "270 000";
-			answers[1][1] = "230 000";
-			answers[1][2] = "100 000";
-			answers[1][3] = "100 0000";
-			answers[2][0] = "8";
-			answers[2][1] = "9";
-			answers[2][2] = "Mniej";
-			answers[2][3] = "Wiecej";
-			answers[3][0] = "Mars i Jowisz\n" + "";
-			answers[3][1] = "W UkÅ‚adzie SÅ‚onecznym nie ma pasu planetoid\n" + "";
-			answers[3][2] = "Uran i Neptun\n" + "";
-			answers[3][3] = "Saturn i Uran\n" + "";
-			answers[4][0] = "Jowisz";
-			answers[4][1] = "Pluton";
-			answers[4][2] = "Ziemia\n" + "";
-			answers[4][3] = "Inna";
-		
-			correct[0] = answers[0][0];
-			correct[1] = answers[1][0];
-			correct[2] = answers[2][0];
-			correct[3] = answers[3][0];
-			correct[4] = answers[4][0];
+		else {
+			temp = 0;
+		}
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

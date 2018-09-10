@@ -6,17 +6,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.StartController">
+<AnchorPane prefHeight="420.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.StartController">
    <children>
-      <Button fx:id="startButton" layoutX="244.0" layoutY="257.0" mnemonicParsing="false" prefHeight="111.0" prefWidth="213.0" text="Start Quiz" textFill="#d71010" AnchorPane.bottomAnchor="132.0" AnchorPane.leftAnchor="244.0" AnchorPane.rightAnchor="243.0" AnchorPane.topAnchor="257.0">
-         <font>
-            <Font name="KacstFarsi" size="24.0" />
-         </font></Button>
-      <Label alignment="CENTER" layoutX="332.0" layoutY="141.0" text="Wersja testowa gry quiz" AnchorPane.bottomAnchor="270.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="141.0">
+      <Label fx:id="label" alignment="CENTER" layoutX="112.0" layoutY="52.0" prefHeight="103.0" prefWidth="298.0" AnchorPane.bottomAnchor="265.0" AnchorPane.leftAnchor="112.0" AnchorPane.rightAnchor="110.0" AnchorPane.topAnchor="52.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
+      <Button fx:id="startButton" layoutX="182.0" layoutY="261.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="177.0" text="Button" AnchorPane.bottomAnchor="130.0" AnchorPane.leftAnchor="160.0" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="240.0" />
    </children>
    <effect>
       <Glow />

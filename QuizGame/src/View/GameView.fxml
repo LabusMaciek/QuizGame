@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GameController">
+<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GameController">
    <children>
       <Label fx:id="questionLabel" alignment="CENTER" layoutX="50.0" layoutY="166.0" prefHeight="69.0" prefWidth="500.0" text="label" AnchorPane.bottomAnchor="265.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="166.0">
          <font>
@@ -34,7 +34,7 @@
          <font>
             <Font size="18.0" />
          </font></RadioButton>
-      <Button fx:id="next" layoutX="540.0" layoutY="443.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="121.0" text="Next Question" />
+      <Button fx:id="next" layoutX="540.0" layoutY="443.0" mnemonicParsing="false" onAction="#display" prefHeight="43.0" prefWidth="121.0" text="Next Question" />
       <ImageView fitHeight="156.0" fitWidth="460.0" layoutX="120.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="344.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>
