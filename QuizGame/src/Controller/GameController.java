@@ -27,6 +27,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class GameController implements Initializable{
@@ -40,16 +41,16 @@ public class GameController implements Initializable{
 	@FXML	RadioButton rbtn_4 = new RadioButton();
 	@FXML	ToggleGroup rbtnGroup = new ToggleGroup();
 	@FXML 	Button next = new Button();
+	@FXML	Pane pane = new Pane();
 	
 			
 			
 			List<Question> questionList =  Arrays.asList(
-					new Question("Jak¹ œrednice ma najwiêkszy krater na Merkurym", "1-1248 km", "2-10000 km", "3-997 km", "4-1550 km"),
+					new Question("Jak¹ œrednice ma najwiêkszy krater na Merkurym?", "1248 km", "10000 km", "997 km", "1550 km"),
 					new Question("Jak¹ œrednice maj¹ pierœcienie saturna?","100000 km","1000 km","239 000 km","270 000 km"),
 					new Question("Ile planet jest w Uk³adzie S³onecznym?","9","Mniej","Wiêcej","8"),
 					new Question("Pomiêdzy jakimi dwoma planetami Uk³adu S³onecznego znajduje siê pas planetoid?","Uran i Neptun","Wernus i Mars","Saturn i Uran","Mars i Jowisz"),
-					new Question("Najwiêksza planeta Uk³adu S³onecznego to:","Mars","Ziemia","S³oñce","Jowisz"),
-					new Question("udalo sie","chuja sie udalo", "pronto mordo", "opierdolibym chinczyka", "wtf"));
+					new Question("Najwiêksza planeta Uk³adu S³onecznego to:","Mars","Ziemia","S³oñce","Jowisz"));
 			
 			List<RadioButton> radioButtonList = Arrays.asList(rbtn_1, rbtn_2, rbtn_3, rbtn_4); 
 			
@@ -67,6 +68,12 @@ public class GameController implements Initializable{
 		
 		Collections.shuffle(questionList);
 		Collections.shuffle(radioButtonList);
+		
+		rbtn_1.setWrapText(true);
+		rbtn_2.setWrapText(true);
+		rbtn_3.setWrapText(true);
+		rbtn_4.setWrapText(true);
+
 	
 	}
 			
@@ -74,16 +81,16 @@ public class GameController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 	
 		questionLabel.setText(questionList.get(num).getContentQuestion());
+		questionLabel.setWrapText(true);
+
 		rbtn_1.setText(questionList.get(num).getAnswer1());
 		rbtn_2.setText(questionList.get(num).getAnswer2());
 		rbtn_3.setText(questionList.get(num).getAnswer3());
 		rbtn_4.setText(questionList.get(num).getCorrectAnswer());
 	
+	
 		
-		
-		
-		
-		/*	
+		/*
 		(radioButtonList.get(0)).setText(questionList.get(num).getAnswer1());
 		rbtn_2.setText(questionList.get(num).getAnswer2());
 		radioButtonList.get(2).setText(questionList.get(num).getAnswer3());
@@ -105,6 +112,8 @@ public class GameController implements Initializable{
 		if(num<initialListSize) {
 			
 			questionLabel.setText(questionList.get(num).getContentQuestion());
+			questionLabel.setWrapText(true);
+
 			rbtn_1.setText(questionList.get(num).getAnswer1());
 			rbtn_2.setText(questionList.get(num).getAnswer2());
 			rbtn_3.setText(questionList.get(num).getAnswer3());
@@ -113,10 +122,11 @@ public class GameController implements Initializable{
 		else {
 
 			try {   
-	      		Parent root2 = FXMLLoader.load(getClass().getResource("/View/FinishView.fxml"));
-	      		Scene scene2 = new Scene(root2);
+	      		Parent root = FXMLLoader.load(getClass().getResource("/View/FinishView.fxml"));
+	      		Scene scene = new Scene(root);
+	      		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
 	      		Stage gameStage = (Stage)((Node) event.getSource()).getScene().getWindow();
-	      		gameStage.setScene(scene2);
+	      		gameStage.setScene(scene);
 	      		gameStage.show();
 	      		}
 			

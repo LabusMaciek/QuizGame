@@ -45,7 +45,6 @@ public class FinishController implements Initializable{
  
             @Override
             public void handle(ActionEvent event) {
-            	System.out.println("next scene");
            
               	try {   
               		Parent root2 = FXMLLoader.load(getClass().getResource("/View/StartView.fxml"));

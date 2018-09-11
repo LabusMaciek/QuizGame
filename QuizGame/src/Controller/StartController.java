@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 public class StartController  implements Initializable{
@@ -20,25 +21,23 @@ public class StartController  implements Initializable{
 	@FXML
 	Button startButton = new Button();
 	@FXML
-	Label label = new Label();
-	
-	String dupa = "Wersja testowa gry quiz";
+	Label startLabelText = new Label();
 	
 	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
-		label.setText(dupa);
-	
-		startButton.setText("START GAME");
+		//label.setText("Wersja testowa gry quiz");
+		startLabelText.setText("                          SPACE QUIZ   \n      SprawdŸ swoj¹ wiedzê o kosmosie!");
+		startLabelText.setWrapText(true);
+		startButton.setText("Start gry");
 		
 		startButton.setOnAction(new EventHandler<ActionEvent>() {
  
             @Override
             public void handle(ActionEvent event) {
-            	System.out.println("next scene");
-           
+
               	try {   
               		Parent root = FXMLLoader.load(getClass().getResource("/View/GameView.fxml"));
               		Scene scene = new Scene(root);
