@@ -43,11 +43,16 @@ public class GameController implements Initializable{
 			
 			
 			List<Question> questionList =  Arrays.asList(
-					new Question("Jak� �rednice ma najwi�kszy krater na Merkurym?", "1248 km", "10000 km", "997 km", "1550 km"),
-					new Question("Jak� �rednice maj� pier�cienie saturna?","100000 km","1000 km","239 000 km","270 000 km"),
-					new Question("Ile planet jest w Uk�adzie S�onecznym?","9","Mniej","Wi�cej","8"),
-					new Question("Pomi�dzy jakimi dwoma planetami Uk�adu S�onecznego znajduje si� pas planetoid?","Uran i Neptun","Wernus i Mars","Saturn i Uran","Mars i Jowisz"),
-					new Question("Najwi�ksza planeta Uk�adu S�onecznego to:","Mars","Ziemia","S�o�ce","Jowisz"));
+					new Question("Jaką średnice ma największy krater na Merkurym?", "1248 km", "10000 km", "997 km", "1550 km"),
+					new Question("Jaką średnice mają pierścienie saturna?","100000 km","1000 km","239 000 km","270 000 km"),
+					new Question("Ile planet jest w Układzie Słonecznym?","9","Mniej","Więcej","8"),
+					new Question("Pomiędzy jakimi dwoma planetami Układu Słonecznego znajduje się pas planetoid?","Uran i Neptun","Wernus i Mars","Saturn i Uran","Mars i Jowisz"),
+					new Question("Największa planeta Układu Słonecznego to:","Mars","Ziemia","Słońce","Jowisz"),
+					new Question("W którym roku odbyła się pierwsza załogowa misja lotu na Księżyc?","1959","1945","1979","1969" ),
+					new Question("Jak nazywał się pierwszy statek kosmiczny, który wylądował na Księżycu?", "Rentgen", "Appollo 11", "Appolo 13", "Luna"),
+					new Question("Czym jest Księżyc?", "Gwiazdą", "Planetą", "Kometą", "Satelitą"),
+					new Question("Ile wyróżniamy głównych faz Księżyca?", "24", "12", "6", "4"),
+					new Question("W którym roku Mikołaj Kopernik opublikował swoje dzieło \"O obrotach sfer niebieskich\"?", "1410", "1603", "1490", "1543"));
 			
 			List<RadioButton> radioButtonList = Arrays.asList(rbtn_1, rbtn_2, rbtn_3, rbtn_4); 
 			
@@ -60,7 +65,6 @@ public class GameController implements Initializable{
 	
 			
 			
-			
 	public GameController() {
 		
 		Collections.shuffle(questionList);
@@ -69,9 +73,7 @@ public class GameController implements Initializable{
 		rbtn_1.setWrapText(true);
 		rbtn_2.setWrapText(true);
 		rbtn_3.setWrapText(true);
-		rbtn_4.setWrapText(true);
-
-	
+		rbtn_4.setWrapText(true);  
 	}
 			
 	@Override
@@ -86,23 +88,18 @@ public class GameController implements Initializable{
 		rbtn_4.setText(questionList.get(num).getCorrectAnswer());
 	
 	
-		
 		/*
 		(radioButtonList.get(0)).setText(questionList.get(num).getAnswer1());
 		rbtn_2.setText(questionList.get(num).getAnswer2());
 		radioButtonList.get(2).setText(questionList.get(num).getAnswer3());
 		radioButtonList.get(3).setText(questionList.get(num).getCorrectAnswer());
 		*/
-		
-			
-	
 		}
 	
 	
 	@FXML
 	public void display(ActionEvent event) {
 		
-	//	Collections.shuffle(radioButtonList);
 		++num;
 		status = status+temp;
 		
@@ -147,10 +144,5 @@ public class GameController implements Initializable{
 		}
 		
 	}
-	
-	
-
-	
-	
 	
 }

@@ -29,7 +29,7 @@ public class StartController  implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		//label.setText("Wersja testowa gry quiz");
-		startLabelText.setText("                          SPACE QUIZ   \n      SprawdŸ swoj¹ wiedzê o kosmosie!");
+		startLabelText.setText("\t\t\t SPACE QUIZ\n     SprawdŸ swoj¹ wiedzê o kosmosie!");
 		startLabelText.setWrapText(true);
 		startButton.setText("Start gry");
 

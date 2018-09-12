@@ -23,14 +23,13 @@ public class Main extends Application {
 			Scene scene = new Scene(root);	
 			scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
 	        startStage.setScene(scene);
+	        startStage.setResizable(false);
+            startStage.setTitle("QUIZ GAME by ³obuz");
 	        startStage.show();
 			}
 		catch(Exception e) {
 			e.printStackTrace();
 			}
-	
-		
-	
 	}
 	
 }
