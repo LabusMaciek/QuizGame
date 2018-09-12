@@ -32,25 +32,23 @@ public class StartController  implements Initializable{
 		startLabelText.setText("                          SPACE QUIZ   \n      SprawdŸ swoj¹ wiedzê o kosmosie!");
 		startLabelText.setWrapText(true);
 		startButton.setText("Start gry");
-		
-		startButton.setOnAction(new EventHandler<ActionEvent>() {
- 
-            @Override
-            public void handle(ActionEvent event) {
 
-              	try {   
-              		Parent root = FXMLLoader.load(getClass().getResource("/View/GameView.fxml"));
-              		Scene scene = new Scene(root);
-              		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
-              		Stage gameStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-              		gameStage.setScene(scene);
-              		gameStage.show();
-              		}
-              	catch(Exception e) {
-              		e.printStackTrace();
-              		}
-              }
-		});
+	}
+	
+	// startButton on action
+    public void handle(ActionEvent event) {
 
-}
+      	try {   
+      		Parent root = FXMLLoader.load(getClass().getResource("/View/GameView.fxml"));
+      		Scene scene = new Scene(root);
+      		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
+      		Stage gameStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+      		gameStage.setScene(scene);
+      		gameStage.show();
+      		}
+      	catch(Exception e) {
+      		e.printStackTrace();
+      		}
+      }
+
 }

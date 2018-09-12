@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="575.0" styleClass="startBackground" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.StartController">
    <children>
-      <Button fx:id="startButton" layoutX="160.0" layoutY="377.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="255.0" text="Button" AnchorPane.bottomAnchor="62.0" AnchorPane.leftAnchor="160.0" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="377.0" />
+      <Button fx:id="startButton" layoutX="160.0" layoutY="377.0" mnemonicParsing="false" onAction="#handle" prefHeight="61.0" prefWidth="255.0" styleClass="Button" stylesheets="@application.css" text="Button" AnchorPane.bottomAnchor="62.0" AnchorPane.leftAnchor="160.0" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="377.0" />
       <Label fx:id="startLabelText" layoutY="36.0" prefHeight="214.0" prefWidth="575.0" text="                 " AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="36.0" />
    </children>
    <effect>

@@ -1,9 +1,7 @@
 package Controller;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.EventObject;
 import java.util.LinkedList;
@@ -11,7 +9,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 import Model.Question;
 import javafx.event.ActionEvent;
@@ -137,7 +134,7 @@ public class GameController implements Initializable{
 				}
 		}
 
-	
+	// check correct answer
 	@FXML
 	public void handleRadioButtonAction(ActionEvent event) {
 		
@@ -152,18 +149,7 @@ public class GameController implements Initializable{
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 	

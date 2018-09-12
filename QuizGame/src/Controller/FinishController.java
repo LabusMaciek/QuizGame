@@ -36,7 +36,7 @@ public class FinishController implements Initializable{
  
             @Override
             public void handle(ActionEvent event) {
-            	System.out.println(result);
+            
             }
 		});
 		
@@ -59,7 +59,7 @@ public class FinishController implements Initializable{
               }
 		});
 		
-		statusLabel.setText(result);
+		statusLabel.setText(result+" / 10");
 		
 	} // end of initialize
 		
