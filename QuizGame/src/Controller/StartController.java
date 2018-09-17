@@ -50,6 +50,5 @@ public class StartController  implements Initializable{
       		e.printStackTrace();
       		}
       }
-  //test
 
 }
