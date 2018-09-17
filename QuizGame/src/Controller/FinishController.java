@@ -44,11 +44,11 @@ public class FinishController implements Initializable{
 		
 		label2.setWrapText(true);
 		
-		if (gameController.status < 3) {
+		if (gameController.status <= 3) {
 			label2.setText("Ma³o wiesz o kosmosie");
 		}
-		if (gameController.status >= 3 && gameController.status < 6) {
-			label2.setText("Nawet niezle");
+		if (gameController.status > 3 && gameController.status < 6) {
+			label2.setText("Niez³y wynik");
 		}
 		if (gameController.status >= 6 && gameController.status < 8) {
 			label2.setText("WOW dobry wynik");
