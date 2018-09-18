@@ -1,12 +1,29 @@
 package Model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="questions")
 public class Question {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
+	private int id;
+	@Column(name="tresc_pytania")
 	private String contentQuestion;
+	@Column(name="odp1")
 	private String answer1;
+	@Column(name="odp2")
 	private String answer2;
+	@Column(name="odp3")
 	private String answer3;
+	@Column(name="poprawna_odp")
 	private String correctAnswer;
 	
 	
@@ -62,8 +79,12 @@ public class Question {
 	public void setCorrectAnswer(String correctAnswer) {
 		this.correctAnswer = correctAnswer;
 	}
+
+	@Override
+	public String toString() {
+		return "Question [id=" + id + ", contentQuestion=" + contentQuestion + ", answer1=" + answer1 + ", answer2="
+				+ answer2 + ", answer3=" + answer3 + ", correctAnswer=" + correctAnswer + "]";
+	}
 	
-	
-	
-	
+
 }

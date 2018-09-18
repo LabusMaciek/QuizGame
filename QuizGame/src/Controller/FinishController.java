@@ -3,6 +3,7 @@ package Controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Model.SetQuizData;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -29,7 +30,8 @@ public class FinishController implements Initializable{
 	Button exit = new Button();
 	
 	GameController gameController = new GameController();
-	String result = String.valueOf(gameController.status);
+	SetQuizData stat = new SetQuizData();
+	String result = String.valueOf(stat.getStatus());
 	
 
 	
@@ -44,26 +46,24 @@ public class FinishController implements Initializable{
 		
 		label2.setWrapText(true);
 		
-		if (gameController.status <= 3) {
+		if (stat.getStatus() <= 3) {
 			label2.setText("Ma³o wiesz o kosmosie");
 		}
-		if (gameController.status > 3 && gameController.status < 6) {
+		if (stat.getStatus() > 3 && stat.getStatus() < 6) {
 			label2.setText("Niez³y wynik");
 		}
-		if (gameController.status >= 6 && gameController.status < 8) {
+		if (stat.getStatus() >= 6 && stat.getStatus() < 8) {
 			label2.setText("WOW dobry wynik");
 		}
-		if (gameController.status >= 8)  {
+		if (stat.getStatus() >= 8)  {
 			label2.setText("ZNAKOMICIE, GRATULUJE!");
 		}
 		
 		exit.setOnAction(e -> System.exit(0));
 		
-		gameController.status = 0;
+		stat.setStatus(0);
 	} 
 		
-	
-	
 	
     public void replay(ActionEvent event) {
        
@@ -78,8 +78,5 @@ public class FinishController implements Initializable{
           		e.printStackTrace();
           		}
           }
-	
-
 }
-
 
