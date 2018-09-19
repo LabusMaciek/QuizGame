@@ -5,10 +5,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 
-
 public class crudData {
 
-	
 	// create session factory	
 	SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Question.class).buildSessionFactory();
 	
@@ -17,6 +15,7 @@ public class crudData {
 	
 	
 	public void createQuestion() {
+		
 		try {
 			// create a student object
 			System.out.println("Creating new student object...");
@@ -39,19 +38,17 @@ public class crudData {
 	}
 	
 	public void readQuestion(int questionId) {
-	
 		
-		try {
-							
+		try {						
 			//now get a new session and start transaction
 			session = factory.getCurrentSession();
-			session.beginTransaction();
-			
+			session.beginTransaction();		
 			
 			//retrieve question based on the id: primary key
 			System.out.println("\nGetting question with id: "+questionId);
 			
 			Question myQuestion = session.get(Question.class, questionId);
+			
 			System.out.println("Get complete: "+ myQuestion);
 			
 			//commit the transaction
@@ -65,8 +62,8 @@ public class crudData {
 	}
 	
 	public void updateQuestion(int questionId) {
-		try {
-			
+		
+		try {		
 			// start a transaction
 			session.beginTransaction();
 			
@@ -77,7 +74,7 @@ public class crudData {
 			
 			System.out.println("Get complete: "+myQuestion);
 			System.out.println("Updating question");
-			myQuestion.setContentQuestion("Jaka srednice ma najwiekszy krater na Merkurym?");
+			myQuestion.setContentQuestion(null);
 			// commit transaction
 			session.getTransaction().commit();
 			System.out.println("Done!");
@@ -88,8 +85,8 @@ public class crudData {
 	}
 	
 	public void deleteQuestion(int questionId) {
-		try {
 		
+		try {	
 			// start a transaction
 			session.beginTransaction();
 			

@@ -11,11 +11,12 @@ import org.hibernate.cfg.Configuration;
 public class SetQuizData {
 
 	List<Question> theQuestions = Arrays.asList();
-	final int initialListSize = theQuestions.size();
+	
 	private static int Status;
 
 	public SetQuizData() {
 	
+		
 		// create session factory
 		SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Question.class).buildSessionFactory();
 						
@@ -61,12 +62,8 @@ public class SetQuizData {
 
 	
 
-	public int getInitialListSize() {
-		return initialListSize;
-	}
-
-
 	public  void displayQuestions() {
+		
 		System.out.println("Below questions taken from database: ");
 		for (int i=0; i<theQuestions.size();i++) {
 			System.out.println(theQuestions.get(i));

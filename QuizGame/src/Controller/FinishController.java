@@ -41,30 +41,30 @@ public class FinishController implements Initializable{
 		
 		
 		label1.setText("Uzyska³eœ wynik:");
-
-		statusLabel.setText(result+" / 10");
-		
+		statusLabel.setText(result+" / 10");	
 		label2.setWrapText(true);
 		
-		if (stat.getStatus() <= 3) {
-			label2.setText("Ma³o wiesz o kosmosie");
-		}
-		if (stat.getStatus() > 3 && stat.getStatus() < 6) {
-			label2.setText("Niez³y wynik");
-		}
-		if (stat.getStatus() >= 6 && stat.getStatus() < 8) {
-			label2.setText("WOW dobry wynik");
-		}
-		if (stat.getStatus() >= 8)  {
-			label2.setText("ZNAKOMICIE, GRATULUJE!");
-		}
+			if (stat.getStatus() <= 3) {
+				label2.setText("Ma³o wiesz o kosmosie");
+				}
+			if (stat.getStatus() > 3 && stat.getStatus() < 6) {
+				label2.setText("Niez³y wynik");
+				}
+			if (stat.getStatus() >= 6 && stat.getStatus() < 8) {
+				label2.setText("WOW dobry wynik");
+				}
+			if (stat.getStatus() >= 8)  {
+				label2.setText("ZNAKOMICIE, GRATULUJE!");
+				}
 		
 		exit.setOnAction(e -> System.exit(0));
 		
+		//reset values before next game
 		stat.setStatus(0);
+		gameController.setNum(0);
 	} 
 		
-	
+	// 'zagraj ponownie' button on action
     public void replay(ActionEvent event) {
        
           	try {   

@@ -34,30 +34,39 @@ public class GameController implements Initializable{
 
 	
 	
-	@FXML	Label questionLabel = new Label();
-	@FXML	RadioButton rbtn_1 = new RadioButton();
-	@FXML	RadioButton rbtn_2 = new RadioButton();
-	@FXML	RadioButton rbtn_3 = new RadioButton();
-	@FXML	RadioButton rbtn_4 = new RadioButton();
-	@FXML	ToggleGroup rbtnGroup = new ToggleGroup();
-	@FXML 	Button next = new Button();
-	@FXML	Pane pane = new Pane();
+	@FXML	
+	Label questionLabel = new Label();
+	@FXML	
+	RadioButton rbtn_1 = new RadioButton();
+	@FXML	
+	RadioButton rbtn_2 = new RadioButton();
+	@FXML	
+	RadioButton rbtn_3 = new RadioButton();
+	@FXML	
+	RadioButton rbtn_4 = new RadioButton();
+	@FXML	
+	ToggleGroup rbtnGroup = new ToggleGroup();
+	@FXML 	
+	Button next = new Button();
+	@FXML	
+	Pane pane = new Pane();
 	
-			SetQuizData data = new SetQuizData();
+	SetQuizData data = new SetQuizData();
 					
-			List<RadioButton> radioButtonList = Arrays.asList(rbtn_1, rbtn_2, rbtn_3, rbtn_4); 
+	List<RadioButton> radioButtonList = Arrays.asList(rbtn_1, rbtn_2, rbtn_3, rbtn_4); 
+		
+	final int initialListSize = data.getTheQuestions().size();
+	//number question 
+	private static int num=0;			
+	int point;
 			
-	
-			int num=0;			
-			int temp;
-			
-			String newLine = System.getProperty("line.separator");
+	String newLine = System.getProperty("line.separator");
 	
 
 			
 	
 	public GameController() {
-			
+		
 		Collections.shuffle(data.getTheQuestions());
 		Collections.shuffle(radioButtonList);
 		
@@ -71,8 +80,6 @@ public class GameController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	
-		
-		
 		questionLabel.setText(data.getTheQuestions().get(num).getContentQuestion());
 		questionLabel.setWrapText(true);
 
@@ -80,7 +87,6 @@ public class GameController implements Initializable{
 		rbtn_2.setText(data.getTheQuestions().get(num).getAnswer2());
 		rbtn_3.setText(data.getTheQuestions().get(num).getAnswer3());
 		rbtn_4.setText(data.getTheQuestions().get(num).getCorrectAnswer());
-
 		}
 	
 	
@@ -88,10 +94,10 @@ public class GameController implements Initializable{
 	public void display(ActionEvent event) {
 		
 		++num;
-		data.setStatus(data.getStatus()+temp);
-	//	status = status+temp;
+		data.setStatus(data.getStatus()+point);
+	
 		
-		if(num<data.getInitialListSize()) {
+		if(num<initialListSize) {
 			
 			questionLabel.setText(data.getTheQuestions().get(num).getContentQuestion());
 			questionLabel.setWrapText(true);
@@ -119,16 +125,16 @@ public class GameController implements Initializable{
 				}
 		}
 
-	// check correct answer
+	// check the correct answer
 	@FXML
 	public void handleRadioButtonAction(ActionEvent event) {
 			
 	
 		if(  (((RadioButton)event.getSource()).getText()).equals(data.getTheQuestions().get(num).getCorrectAnswer())) {	
-			temp = 1;		
+			point = 1;		
 		}
 		else {
-			temp = 0;
+			point = 0;
 		}
 		
 	}
@@ -137,6 +143,16 @@ public class GameController implements Initializable{
 	}
 	public void setRadioButtonList(List<RadioButton> radioButtonList) {
 		this.radioButtonList = radioButtonList;
+	}
+
+
+	public static int getNum() {
+		return num;
+	}
+
+
+	public static void setNum(int num) {
+		GameController.num = num;
 	}
 
 }

@@ -18,11 +18,10 @@ public class Main extends Application {
 
 	public static void main(String[] args) {
 	
-		//object for CRUD operations 
+		//object for CRUD data operations 
 		crudData quest = new crudData();
 		
 		SetQuizData set = new SetQuizData();
-	
 	
 		System.out.println("check if questions list is empty: "+set.theQuestions.isEmpty());
 		launch(args);	
