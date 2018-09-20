@@ -36,10 +36,10 @@ public class Main extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("/View/StartView.fxml"));
 			Scene scene = new Scene(root);	
 			scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
-	        startStage.setScene(scene);
-	        startStage.setResizable(false);
-            startStage.setTitle("QUIZ GAME by ³obuz");
-	        startStage.show();
+	    	  	startStage.setScene(scene);
+	        	startStage.setResizable(false);
+            		startStage.setTitle("QUIZ GAME by Â³obuz");
+	        	startStage.show();
 			}
 		catch(Exception e) {
 			e.printStackTrace();
