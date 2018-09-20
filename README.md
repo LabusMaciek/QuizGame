@@ -17,6 +17,7 @@ Model:
 
 
 View:
+
 -StartView.fxml   -> StartController.java 	
 
       -The first scene of the application - start game
