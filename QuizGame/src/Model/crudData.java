@@ -17,14 +17,14 @@ public class crudData {
 	public void createQuestion() {
 		
 		try {
-			// create a student object
-			System.out.println("Creating new student object...");
+			// create a question object
+			System.out.println("Creating new question object...");
 			Question newQuestion = new Question(null, null, null, null, null);
 		
 			// start a transaction
 			session.beginTransaction();
 			
-			// save the student object
+			// save the question object
 			System.out.println("Saving new question...");
 			session.save(newQuestion);
 		
@@ -67,8 +67,8 @@ public class crudData {
 			// start a transaction
 			session.beginTransaction();
 			
-			//retrieve student based on the id: primary key
-			System.out.println("Getting student with id: "+questionId);
+			//retrieve quesition based on the id: primary key
+			System.out.println("Getting question with id: "+questionId);
 		
 			Question myQuestion = session.get(Question.class, questionId);
 			
@@ -90,13 +90,13 @@ public class crudData {
 			// start a transaction
 			session.beginTransaction();
 			
-			//retrieve student based on the id: primary key
+			//retrieve question based on the id: primary key
 			System.out.println("Getting student with id: "+questionId);
 		
 			Question myQuestion = session.get(Question.class, questionId);
 			
 			System.out.println("Get complete: "+myQuestion);
-			System.out.println("Deleting the student");
+			System.out.println("Deleting the question");
 			session.delete(myQuestion);
 			// commit transaction
 			session.getTransaction().commit();
